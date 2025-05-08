@@ -1,0 +1,78 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0b1f33;
+    color: #fff;
+  }
+  .form-container {
+    background: #ffffff;
+    color: #000;
+    padding: 2rem;
+    border-radius: 20px;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    margin: 4rem auto;
+    border: 3px solid #d4af37;
+  }
+  h2 {
+    color: #0b1f33;
+    text-align: center;
+  }
+  label {
+    font-weight: bold;
+  }
+  input, select {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #d4af37;
+    color: #0b1f33;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #e6c74a;
+  }
+  .crypto-section {
+    margin-top: 2rem;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+  }
+  .crypto-section img {
+    width: 180px;
+    height: 180px;
+    margin-top: 1rem;
+  }
+  .message {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+  }
+  .success {
+    background-color: #d4edda;
+    color: #155724;
+    display: block !important;
+  }
+  .error {
+    background-color: #f8d7da;
+    color: #721c24;
+    display: block !important;
+  }
+  

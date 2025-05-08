@@ -4,85 +4,7 @@
   <meta charset="UTF-8">
   <title>Бронирование номера | DVhotels Vesta</title>
   <link href="https://api.cryptocloud.plus/static/pay_btn/css/app.css" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #0b1f33;
-      color: #fff;
-    }
-    .form-container {
-      background: #ffffff;
-      color: #000;
-      padding: 2rem;
-      border-radius: 20px;
-      max-width: 600px;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-      margin: 4rem auto;
-      border: 3px solid #d4af37;
-    }
-    h2 {
-      color: #0b1f33;
-      text-align: center;
-    }
-    label {
-      font-weight: bold;
-    }
-    input, select {
-      width: 100%;
-      margin-bottom: 1rem;
-      padding: 0.6rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-    button {
-      width: 100%;
-      padding: 0.8rem;
-      background-color: #d4af37;
-      color: #0b1f33;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-    button:hover {
-      background-color: #e6c74a;
-    }
-    .crypto-section {
-      margin-top: 2rem;
-      background-color: #f9f9f9;
-      padding: 1rem;
-      border-radius: 10px;
-      text-align: center;
-      display: none;
-    }
-    .crypto-section img {
-      width: 180px;
-      height: 180px;
-      margin-top: 1rem;
-    }
-    .message {
-      margin-top: 1rem;
-      padding: 0.8rem;
-      border-radius: 5px;
-      text-align: center;
-      display: none;
-    }
-    .success {
-      background-color: #d4edda;
-      color: #155724;
-      display: block !important;
-    }
-    .error {
-      background-color: #f8d7da;
-      color: #721c24;
-      display: block !important;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -135,48 +57,7 @@
     <p><small>*Оплата через CryptoCloud поддерживает BTC, USDT, TON и другие криптовалюты.</small></p>
   </div>
 </div>
-
-<script>
-  const form = document.getElementById('booking-form');
-  const messageBox = document.getElementById('form-message');
-  const cryptoSection = document.getElementById('crypto-section');
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const name = document.querySelector('input[type="text"]').value.trim();
-    const checkIn = document.querySelectorAll('input[type="date"]')[0].value;
-    const checkOut = document.querySelectorAll('input[type="date"]')[1].value;
-    const roomType = document.getElementById('room-type').value;
-    const paymentMethod = document.getElementById('payment-method').value;
-
-    messageBox.className = 'message';
-    messageBox.textContent = '';
-    cryptoSection.style.display = 'none';
-
-    if (checkIn && checkOut && new Date(checkOut) <= new Date(checkIn)) {
-      messageBox.className = 'message error';
-      messageBox.textContent = 'Ошибка: дата выезда должна быть позже даты заезда.';
-      return;
-    }
-
-    if (name && checkIn && checkOut && roomType && paymentMethod) {
-      messageBox.className = 'message success';
-      if (paymentMethod === 'crypto') {
-        // Динамически обновляем order_id для vue-widget
-        const widget = document.querySelector('vue-widget');
-        widget.setAttribute('order_id', `ORDER_${Date.now()}`); // Генерация уникального order_id
-        messageBox.textContent = 'Бронирование успешно! Перейдите к оплате через CryptoCloud.';
-        cryptoSection.style.display = 'block';
-      } else {
-        messageBox.textContent = 'Бронирование успешно! Перейдите к оплате банковской картой.';
-      }
-    } else {
-      messageBox.className = 'message error';
-      messageBox.textContent = 'Ошибка: заполните все обязательные поля.';
-    }
-  });
-</script>
 <script src="https://api.cryptocloud.plus/static/pay_btn/js/app.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
